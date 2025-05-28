@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Self-hosted runners provide organizations with flexibility to customize the environment for GitHub Actions workflows. However, they introduce significant security risks if not properly configured and managed. This document outlines security requirements and hardening guidelines for self-hosted runners based on industry best practices and recent supply chain attacks.
+Self-hosted runners provide organizations with the flexibility to customize the environment for GitHub Actions workflows. However, they introduce significant security risks if not properly configured and managed. This document outlines security requirements and hardening guidelines for self-hosted runners based on industry best practices and recent supply chain attacks.
 
 ## Core Security Principle
 
@@ -22,9 +22,9 @@ The security controls outlined in this document are designed to contain damage w
 
 Self-hosted runners execute code from GitHub repositories, including potentially untrusted code from pull requests. Unlike GitHub-hosted runners which use ephemeral VMs that are destroyed after each job, self-hosted runners can be compromised persistently if not properly secured.
 
-### Notable Attack: 
+### Notable Attacks: 
 
-TBD
+Good summary on this [blog post](https://www.wiz.io/blog/github-actions-security-guide)
 
 ## Secure Self-Hosted Runner Architecture
 
@@ -38,6 +38,8 @@ Clear separation between GitHub and internal environment, with well-defined entr
 #### 2. Runner Controller/Orchestrator
 A central system that manages the lifecycle of ephemeral runners, including:
 - Creating fresh runner instances for each job
+  - For reference, this was introduced in PyTorch with pytorch/test-infra#6628
+  - A key naunce is what "fresh" means in different infra environments: VM, k8s, and so forth
 - Ensuring runners are properly isolated
 - Destroying runners immediately after job completion
 - Enforcing security policies consistently
@@ -49,9 +51,11 @@ A central system that manages the lifecycle of ephemeral runners, including:
 - Runners have no ability to modify their host environment
 
 #### 4. Restricted Network
-- Limited network access for runners
-- Egress filtering to prevent unauthorized connections
-- Segmentation between runners and internal systems
+- Clearly define and document the allowed external connections
+- By default, no external connections should be allowed (in fact a well written test should in most cases be self contained).
+  - Except for connections needed by the runner itself
+  - Other exceptions need to be reviewed by project maintainers
+- Be extra restrictive about connections to a company (owning the runner)'s intranet
 - No direct access to sensitive internal services
 
 #### 5. Secure Secret Management
@@ -70,13 +74,14 @@ A central system that manages the lifecycle of ephemeral runners, including:
 6. Upon job completion (success or failure), the runner instance is immediately destroyed
 7. All logs are forwarded to a central monitoring system for analysis
 
-## Security Requirements
+## Important Implementation Details
+This section lays out the above principles into more concreted implementation details:
 
 ### 1. Workflow Approval Controls
 
 - **CRITICAL**: Configure "Require approval for all outside collaborators" rather than the default "Require approval for first-time contributors"
 - Implement additional review for any workflows that request access to secrets
-- Limit self-hosted runners to internal workflows and trusted contributors only
+- When using self-hosted runners on a public repository, require a trusted maintainer / committer to approve any CI job runs
 
 ### 2. Runner Isolation and Ephemerality 
 
@@ -91,12 +96,14 @@ A central system that manages the lifecycle of ephemeral runners, including:
 - Limit the repositories that each runner group can access
 - Use dedicated runners for specific sensitive workflows only
 - Configure runner groups at the organization level with granular access policies
-- Disable self-hosted runners for public repositories unless absolutely necessary
+- Enforce necessary maintainer / committer approvals when using self-hosted runners on public repositories
 
 ### 4. Secret Management
 
 - Never store sensitive credentials on self-hosted runners
-- Use GitHub's OIDC (OpenID Connect) for authentication to cloud services
+- Use GitHub's OIDC (OpenID Connect) for authenticating the runner itself to necessary cloud services
+  - Disallow network connections of the CI job by default
+  - If the test really needs to access a network service, make sure the secret is part of the test instead of shared from the runner
 - Implement just-in-time credential access instead of persistent credentials
 - Monitor for and rotate compromised credentials immediately
 - Use short-lived access tokens with minimal privileges
@@ -108,6 +115,7 @@ A central system that manages the lifecycle of ephemeral runners, including:
 - Block unnecessary incoming connections
 - Use private networks for communication between runners and internal services
 - Consider using a dedicated VLAN or subnet for runner traffic
+  - For reference, this is already implemented in PyTorch CI
 
 ### 6. Monitoring and Logging
 
