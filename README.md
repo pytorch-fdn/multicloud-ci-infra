@@ -10,7 +10,7 @@ Objectives of the group are:
 * Leverage credits so we maintain test coverage without increasing infrastructure spend 
 * Extend the list of runner-providers so we improve test coverage without increasing infrastructure spend
 
-The diagram below shows an high-level overview of the target state we won't to achieve.
+The diagram below shows a high-level overview of the target state we want to achieve.
 
 ![pytorch-multi-cloud-infra-overview](pytorch-multi-cloud-infra-overview.png)
 
