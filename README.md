@@ -41,7 +41,7 @@ The prototype continues to use GitHub Actions to schedule jobs like today. It us
 
 ![pytorch-multi-cloud-infra-Infrastructure](pytorch-multi-cloud-infra-Infrastructure.png)
 
-[Layered ToFu modules](https://github.com/pytorch/ci-infra/tree/main/arc/aws/391835788720/us-east-1) can be used to reproduce the same setup on top of Kubenernets running across clouds.
+[Layered ToFu modules](https://github.com/pytorch/ci-infra/tree/main/arc/aws/391835788720/us-east-1) can be used to reproduce the same setup on top of Kubernetes running across clouds.
 [ArgoCD](https://github.com/pytorch/ci-infra/tree/main/argocd) is used to maintain centrally the definition of the fleet configuration.
 
 ## Contributing
