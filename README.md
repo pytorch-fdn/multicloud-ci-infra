@@ -23,7 +23,7 @@ The development of the proposal is organised in three streams of work:
 
 * Stream 1: Focuses CI/CD Jobs and their infrastructure. Several CI/CD jobs today make assumptions about the availability of cloud-specific services, infrastructure and credentials, which renders them not portable. The infrastructure that CI/CD jobs rely on to consume and produce artifacts must be cloud-agnostic while minimising cross-region and cross-cloud bandwidth consumption.
 
-* Stream 2: Focuses on monitoring and observability. The stream designes how metrics, logs, alerts and execution data may be produced by runners on various clouds, and efficiently collected centrally, to operate the multi-cloud fleet from a central dashboard.
+* Stream 2: Focuses on monitoring and observability. The stream designs how metrics, logs, alerts and execution data may be produced by runners on various clouds, and efficiently collected centrally, to operate the multi-cloud fleet from a central dashboard.
 
 * Stream 3: Focuses on provisioning of the infrastructure, autoscaling and scheduling of the CI/CD jobs. The existing autoscaler can run on AWS and provision AWS virtual machines. This stream looks into expanding provisioning and autoscaling of infrastructure to other clouds, and defining how jobs shall be scheduled to specific group of nodes in the fleet. 
 
