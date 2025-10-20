@@ -21,7 +21,7 @@ The proposal document is work in progress, and can be found in the [group cloud 
 
 The development of the proposal is organised in three streams of work:
 
-* Stream 1: Focuses CI/CD Jobs and their infrastructure. Several CI/CD jobs today make assumptions about the availability of cloud-specific services, infrastructure and credentials, which renders them not portable. The infrastructure that CI/CD jobs rely on to consume and produce artifact must be cloud-agnostic while minimising cross-region and cross-cloud bandwidth consumption.
+* Stream 1: Focuses CI/CD Jobs and their infrastructure. Several CI/CD jobs today make assumptions about the availability of cloud-specific services, infrastructure and credentials, which renders them not portable. The infrastructure that CI/CD jobs rely on to consume and produce artifacts must be cloud-agnostic while minimising cross-region and cross-cloud bandwidth consumption.
 
 * Stream 2: Focuses on monitoring and observability. The stream designes how metrics, logs, alerts and execution data may be produced by runners on various clouds, and efficiently collected centrally, to operate the multi-cloud fleet from a central dashboard.
 
