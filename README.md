@@ -37,7 +37,7 @@ The working group has developed some draft guidelines with respect to securing a
 ## Prototype
 
 To validate the ideas from the proposed architecture, the group is building a prototype implementation, which benefits from [previous work](https://github.com/pytorch/ci-infra/tree/main/arc-backup-2024) done by the PyTorch infra team.
-The propotype continues to use GitHub Action to schedule jobs like today. It uses Kubernetes to provide a cloud-agnostic API, and [Action Runner Controller (ARC)](https://docs.github.com/en/actions/concepts/runners/actions-runner-controller) to define the fleet and manage provisioning and autoscaling of runners.
+The prototype continues to use GitHub Actions to schedule jobs like today. It uses Kubernetes to provide a cloud-agnostic API, and [Action Runner Controller (ARC)](https://docs.github.com/en/actions/concepts/runners/actions-runner-controller) to define the fleet and manage provisioning and autoscaling of runners.
 
 ![pytorch-multi-cloud-infra-Infrastructure](pytorch-multi-cloud-infra-Infrastructure.png)
 
