@@ -46,6 +46,6 @@ The prototype continues to use GitHub Actions to schedule jobs like today. It us
 
 ## Contributing
 
-The working group welcomes contribution to the proposed archictures, to the guidelines as well as the prototype.
+The working group welcomes contribution to the proposed architectures, to the guidelines as well as the prototype.
 
 The working group has a [Slack Channel](https://pytorch.slack.com/archives/C088Y6PKJ2Z) on the PyTorch workspace. Meetings take place via Zoom every Tuesday at 9am PT/4pm UTC. They are open to everyone, the only prerequisite to join is a having [Linux Foundation Account](https://identity.linuxfoundation.org). Please ping us on the slack channel to get an invite.
