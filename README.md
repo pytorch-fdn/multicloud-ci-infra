@@ -14,6 +14,11 @@ The diagram below shows a high-level overview of the target state we want to ach
 
 ![pytorch-multi-cloud-infra-overview](pytorch-multi-cloud-infra-overview.png)
 
+## Contacts
+
+* Andrea Frittoli, IBM: Working Group Lead, GitHub: `afrittoli`
+* Slack: [#tac-multicloud-wg](https://pytorch.slack.com/archives/C088Y6PKJ2Z)
+
 ## Proposed Architecture
 
 The group is working on proposing a target architecture to expand the current CI/CD system to a multi-cloud fleet.
