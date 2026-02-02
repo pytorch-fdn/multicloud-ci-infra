@@ -14,6 +14,11 @@ The diagram below shows a high-level overview of the target state we want to ach
 
 ![pytorch-multi-cloud-infra-overview](pytorch-multi-cloud-infra-overview.png)
 
+## Contacts
+
+* Andrea Frittoli, IBM: Working Group Lead, GitHub: `afrittoli`
+* Slack: [#tac-multicloud-wg](https://pytorch.slack.com/archives/C088Y6PKJ2Z)
+
 ## Proposed Architecture
 
 The group is working on proposing a target architecture to expand the current CI/CD system to a multi-cloud fleet.
@@ -48,4 +53,4 @@ The prototype continues to use GitHub Actions to schedule jobs like today. It us
 
 The working group welcomes contribution to the proposed architectures, to the guidelines as well as the prototype.
 
-The working group has a [Slack Channel](https://pytorch.slack.com/archives/C088Y6PKJ2Z) on the PyTorch workspace. Meetings take place via Zoom every Tuesday at 9am PT/4pm UTC. They are open to everyone, the only prerequisite to join is having a [Linux Foundation account](https://identity.linuxfoundation.org). Please ping us on the slack channel to get an invite.
+The working group has a [Slack Channel](https://pytorch.slack.com/archives/C088Y6PKJ2Z) on the PyTorch workspace. Meetings take place via Zoom every Monday at 10:30am PT/5:30pm UTC. They are open to everyone, the only prerequisite to join is having a [Linux Foundation account](https://identity.linuxfoundation.org). Please ping us on the slack channel to get an invite.
